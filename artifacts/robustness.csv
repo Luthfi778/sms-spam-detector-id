@@ -1,0 +1,19 @@
+model,perturbasi,recall_spam,n
+Naive Bayes,asli,0.9417,120
+Logistic Regression,asli,0.9417,120
+Logistic Regression (tanpa normalisasi),asli,0.925,120
+Naive Bayes,kapital_semua,0.9417,120
+Logistic Regression,kapital_semua,0.9417,120
+Logistic Regression (tanpa normalisasi),kapital_semua,0.925,120
+Naive Bayes,spasi_antar_huruf,0.9417,120
+Logistic Regression,spasi_antar_huruf,0.9417,120
+Logistic Regression (tanpa normalisasi),spasi_antar_huruf,0.9,120
+Naive Bayes,titik_antar_huruf,0.9417,120
+Logistic Regression,titik_antar_huruf,0.9417,120
+Logistic Regression (tanpa normalisasi),titik_antar_huruf,0.9,120
+Naive Bayes,leetspeak,0.95,120
+Logistic Regression,leetspeak,0.9417,120
+Logistic Regression (tanpa normalisasi),leetspeak,0.8917,120
+Naive Bayes,hapus_huruf (typo),0.9417,120
+Logistic Regression,hapus_huruf (typo),0.9333,120
+Logistic Regression (tanpa normalisasi),hapus_huruf (typo),0.9167,120

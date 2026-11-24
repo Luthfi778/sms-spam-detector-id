@@ -1,0 +1,153 @@
+{
+  "dedup": {
+    "n_raw": 2045,
+    "n_empty": 0,
+    "n_conflicting": 0,
+    "n_duplicates": 186,
+    "n_clean": 1859
+  },
+  "n_train": 1487,
+  "n_test": 372,
+  "counts_raw": {
+    "Normal": 1302,
+    "Spam": 743
+  },
+  "counts_clean": {
+    "Normal": 1257,
+    "Spam": 602
+  },
+  "counts_train": {
+    "Normal": 1005,
+    "Spam": 482
+  },
+  "counts_test": {
+    "Normal": 252,
+    "Spam": 120
+  },
+  "top_words": {
+    "Normal": [
+      [
+        "apakah",
+        90
+      ],
+      [
+        "dia",
+        73
+      ],
+      [
+        "tahu",
+        69
+      ],
+      [
+        "hari",
+        69
+      ],
+      [
+        "sekarang",
+        68
+      ],
+      [
+        "pergi",
+        61
+      ],
+      [
+        "jadi",
+        59
+      ],
+      [
+        "tapi",
+        55
+      ],
+      [
+        "malam",
+        55
+      ],
+      [
+        "saja",
+        54
+      ],
+      [
+        "hanya",
+        54
+      ],
+      [
+        "harus",
+        45
+      ],
+      [
+        "baik",
+        44
+      ],
+      [
+        "ingin",
+        42
+      ],
+      [
+        "memiliki",
+        41
+      ]
+    ],
+    "Spam": [
+      [
+        "hubungi",
+        153
+      ],
+      [
+        "gratis",
+        118
+      ],
+      [
+        "sekarang",
+        115
+      ],
+      [
+        "txt",
+        99
+      ],
+      [
+        "kami",
+        76
+      ],
+      [
+        "ponsel",
+        72
+      ],
+      [
+        "hadiah",
+        68
+      ],
+      [
+        "hanya",
+        65
+      ],
+      [
+        "teks",
+        54
+      ],
+      [
+        "layanan",
+        53
+      ],
+      [
+        "telepon",
+        50
+      ],
+      [
+        "stop",
+        49
+      ],
+      [
+        "panggilan",
+        45
+      ],
+      [
+        "150p",
+        44
+      ],
+      [
+        "minggu",
+        44
+      ]
+    ]
+  }
+}

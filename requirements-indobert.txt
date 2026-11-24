@@ -1,0 +1,5 @@
+# Opsional: hanya untuk scripts/train_indobert.py (disarankan di Google Colab + GPU)
+-r requirements.txt
+torch>=2.0
+transformers>=4.40
+accelerate>=0.26

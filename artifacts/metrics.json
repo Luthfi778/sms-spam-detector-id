@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "seed": 42,
+    "test_size": 0.2,
+    "labels": [
+      "Normal",
+      "Spam"
+    ],
+    "pos_label": "Spam",
+    "n_train": 1487,
+    "n_test": 372
+  },
+  "models": {
+    "nb": {
+      "accuracy": 0.9704301075268817,
+      "precision_spam": 0.9658119658119658,
+      "recall_spam": 0.9416666666666667,
+      "f1_spam": 0.9535864978902954,
+      "precision_macro": 0.9691804927099045,
+      "recall_macro": 0.9628968253968253,
+      "f1_macro": 0.9659451227124061,
+      "roc_auc": 0.9802910052910053,
+      "pr_auc": 0.9762343486067845,
+      "per_class": {
+        "Normal": {
+          "precision": 0.9725490196078431,
+          "recall": 0.9841269841269841,
+          "f1": 0.9783037475345168,
+          "support": 252
+        },
+        "Spam": {
+          "precision": 0.9658119658119658,
+          "recall": 0.9416666666666667,
+          "f1": 0.9535864978902954,
+          "support": 120
+        }
+      },
+      "confusion_matrix": [
+        [
+          248,
+          4
+        ],
+        [
+          7,
+          113
+        ]
+      ],
+      "name": "Naive Bayes",
+      "best_params": {
+        "alpha": 0.5
+      },
+      "cv_f1_macro": 0.9649993509762996,
+      "train_seconds": 15.1,
+      "infer_ms": 3.32
+    },
+    "lr": {
+      "accuracy": 0.9731182795698925,
+      "precision_spam": 0.9741379310344828,
+      "recall_spam": 0.9416666666666667,
+      "f1_spam": 0.9576271186440678,
+      "precision_macro": 0.9733970905172413,
+      "recall_macro": 0.9648809523809524,
+      "f1_macro": 0.9689710396369946,
+      "roc_auc": 0.9915343915343915,
+      "pr_auc": 0.9868906114375104,
+      "per_class": {
+        "Normal": {
+          "precision": 0.97265625,
+          "recall": 0.9880952380952381,
+          "f1": 0.9803149606299213,
+          "support": 252
+        },
+        "Spam": {
+          "precision": 0.9741379310344828,
+          "recall": 0.9416666666666667,
+          "f1": 0.9576271186440678,
+          "support": 120
+        }
+      },
+      "confusion_matrix": [
+        [
+          249,
+          3
+        ],
+        [
+          7,
+          113
+        ]
+      ],
+      "name": "Logistic Regression",
+      "best_params": {
+        "C": 100
+      },
+      "cv_f1_macro": 0.975968190173031,
+      "train_seconds": 12.4,
+      "infer_ms": 4.08
+    }
+  }
+}
