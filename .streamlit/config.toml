@@ -1,0 +1,13 @@
+[theme]
+base = "light"
+primaryColor = "#e6246e"
+backgroundColor = "#d8efff"
+secondaryBackgroundColor = "#e3f1ff"
+textColor = "#12306b"
+font = "sans serif"
+
+[client]
+showSidebarNavigation = false   # navigasi diganti bar di bagian atas (src/theme.py)
+
+[server]
+enableStaticServing = true      # agar file font di static/fonts/ bisa dimuat

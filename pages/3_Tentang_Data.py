@@ -10,9 +10,11 @@ import streamlit as st
 
 from src.app_utils import (FOOTER, WIDTH_CHART, load_dataset_clean, load_summary,
                            require_artifacts, show_fig, themed)
+from src.theme import apply_theme, scene
 from src.config import LABELS
 
 st.set_page_config(page_title="Tentang Data", page_icon="🗂️", layout="wide")
+apply_theme()
 require_artifacts()
 
 s = load_summary()
@@ -91,3 +93,5 @@ st.dataframe(df[df["label"] == lab][["text"]].head(15).rename(columns={"text": "
 
 st.divider()
 st.caption(FOOTER)
+
+scene()

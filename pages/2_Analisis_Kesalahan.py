@@ -8,9 +8,11 @@ import streamlit as st
 
 from src.app_utils import (FOOTER, load_metrics, load_predictions, load_robustness,
                            require_artifacts)
+from src.theme import apply_theme, scene
 from src.config import POS_LABEL
 
 st.set_page_config(page_title="Analisis Kesalahan", page_icon="🔍", layout="wide")
+apply_theme()
 require_artifacts()
 
 metrics = load_metrics()
@@ -93,3 +95,5 @@ with st.expander("Contoh pesan sebelum dan sesudah disamarkan"):
 
 st.divider()
 st.caption(FOOTER)
+
+scene()

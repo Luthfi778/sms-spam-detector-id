@@ -1,0 +1,10 @@
+Font tampilan: Tactic Sans -> Arial Rounded -> Nunito / M PLUS Rounded 1c -> Arial.
+
+Tactic Sans dan Arial Rounded MT Bold adalah font berlisensi, jadi tidak disertakan di sini.
+- Jika font itu sudah terpasang di komputer Anda, otomatis dipakai.
+- Agar ikut terbawa ke komputer lain, letakkan file font berlisensi Anda di folder ini
+  dengan nama persis:
+    TacticSans-Regular.woff2   (atau .otf)
+    TacticSans-Bold.woff2      (atau .otf)
+  Pastikan lisensi font mengizinkan penggunaan di web.
+- Tanpa font tersebut, tampilan memakai Nunito dan M PLUS Rounded 1c (gratis, dimuat dari Google Fonts).

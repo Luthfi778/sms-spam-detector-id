@@ -15,8 +15,10 @@ from src.app_utils import (FOOTER, available_models, load_metrics, load_model,
 from src.config import EXPLAIN_MODEL, POS_LABEL
 from src.explain import explain_linear
 from src.preprocessing import clean_text
+from src.theme import apply_theme, hero, result_card, scene
 
 st.set_page_config(page_title="Detektor SMS Spam", page_icon="🛡️", layout="wide")
+apply_theme(home=True)
 require_artifacts()
 
 SAMPLES = {
@@ -34,40 +36,45 @@ SAMPLES = {
 metrics = load_metrics()
 models = available_models(metrics)
 
-# ---- Sidebar ---------------------------------------------------------------
-with st.sidebar:
-    st.header("Pengaturan")
+# ---- Konten ----------------------------------------------------------------
+hero()
+
+# ---- Pengaturan (dulu di sidebar, sekarang di halaman utama) ---------------
+with st.container(key="card_settings"):
+    st.markdown('<span class="d-rib g">PENGATURAN</span>', unsafe_allow_html=True)
+    c1, c2 = st.columns(2, gap="large")
     default = list(models).index("lr") if "lr" in models else 0
-    key = st.selectbox("Model", list(models), index=default,
-                       format_func=lambda k: models[k])
-    threshold = st.slider(
-        "Ambang Spam", 0.05, 0.95, 0.50, 0.05,
-        help="Pesan dinilai Spam jika probabilitasnya ≥ ambang. Ambang lebih rendah "
-             "→ lebih banyak spam tertangkap (recall naik) tetapi pesan normal lebih "
-             "sering salah ditandai (precision turun).")
+    with c1:
+        key = st.selectbox("Model", list(models), index=default,
+                           format_func=lambda k: models[k])
+    with c2:
+        threshold = st.slider(
+            "Ambang Spam", 0.05, 0.95, 0.50, 0.05,
+            help="Pesan dinilai Spam jika probabilitasnya ≥ ambang. Ambang lebih rendah "
+                 "→ lebih banyak spam tertangkap (recall naik) tetapi pesan normal lebih "
+                 "sering salah ditandai (precision turun).")
     m = metrics["models"][key]
     st.caption(f"F1 Spam pada data uji: **{m['f1_spam']:.3f}** · "
                f"Recall: **{m['recall_spam']:.3f}** · Precision: **{m['precision_spam']:.3f}**")
     st.caption("Pesan yang Anda ketik **tidak disimpan**.")
 
-# ---- Konten ----------------------------------------------------------------
-st.title("🛡️ Detektor SMS Spam & Penipuan")
-st.write("Tempel pesan SMS/WhatsApp berbahasa Indonesia, lalu sistem memperkirakan "
-         "apakah pesan itu **Spam** atau **Normal**.")
+with st.container(key="card_input"):
+    st.markdown('<span class="d-rib">PESAN MASUK</span>', unsafe_allow_html=True)
+    if "text" not in st.session_state:
+        st.session_state["text"] = ""
 
-if "text" not in st.session_state:
-    st.session_state["text"] = ""
+    st.write("**Contoh pesan** (klik untuk mengisi):")
+    cols = st.columns(len(SAMPLES))
+    for col, (name, msg) in zip(cols, SAMPLES.items()):
+        if col.button(name, width="stretch"):
+            st.session_state["text"] = msg
 
-st.write("**Contoh pesan** (klik untuk mengisi):")
-cols = st.columns(len(SAMPLES))
-for col, (name, msg) in zip(cols, SAMPLES.items()):
-    if col.button(name, width="stretch"):
-        st.session_state["text"] = msg
+    text = st.text_area("Isi pesan", key="text", height=140,
+                        placeholder="Tempel pesan di sini…")
 
-text = st.text_area("Isi pesan", key="text", height=140,
-                    placeholder="Tempel pesan di sini…")
+    clicked = st.button("Periksa", type="primary", disabled=not text.strip())
 
-if st.button("Periksa", type="primary", disabled=not text.strip()):
+if clicked:
     model = load_model(key)
     classes = list(model.classes_)
     p_spam = float(model.predict_proba([text])[0][classes.index(POS_LABEL)])
@@ -75,12 +82,7 @@ if st.button("Periksa", type="primary", disabled=not text.strip()):
 
     left, right = st.columns([1, 1])
     with left:
-        if is_spam:
-            st.error(f"### ⚠️ {POS_LABEL}")
-        else:
-            st.success("### ✅ Normal")
-        st.metric("Probabilitas Spam", f"{p_spam:.1%}")
-        st.progress(min(max(p_spam, 0.0), 1.0))
+        result_card(is_spam, p_spam, threshold)
         st.caption(f"Model: {models[key]} · ambang {threshold:.2f}")
         with st.expander("Teks setelah preprocessing"):
             st.code(clean_text(text) or "(kosong)", language=None)
@@ -101,3 +103,5 @@ if st.button("Periksa", type="primary", disabled=not text.strip()):
 
 st.divider()
 st.caption(FOOTER)
+
+scene(chibis=True)

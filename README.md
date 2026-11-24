@@ -244,3 +244,13 @@ Catatan:
 - Dataset asli yang tampaknya menjadi sumber terjemahannya: Almeida, T. A., Hidalgo, J. M. G., & Yamakami, A. (2011). *Contributions to the study of SMS spam filtering: new collection and results.* ACM DocEng.
 - Model IndoBERT (opsional): `indobenchmark/indobert-base-p2` (Wilie dkk., 2020, IndoNLU).
 - Library: scikit-learn, Streamlit, pandas, matplotlib.
+
+## Tema tampilan (Derby)
+
+Latar langit biru dengan awan, navigasi di bagian atas, kartu putih bergaya game, dan rumput di akhir halaman.
+
+- `src/theme.py`: seluruh CSS dan komponen (`apply_theme`, `hero`, `result_card`, `scene`).
+- Setiap halaman memanggil `apply_theme()` setelah `st.set_page_config(...)` dan `scene()` di baris paling akhir. Halaman utama memakai `apply_theme(home=True)`. Chibi di rumput tampil di semua halaman. Pengaturan model dan ambang kini berada di halaman utama (bukan sidebar).
+- Navigasi bawaan sidebar dimatikan (`.streamlit/config.toml`) dan diganti bar atas lewat `st.page_link`.
+- `assets/`: logo dan gambar chibi (milik pemegang hak cipta; untuk keperluan pribadi saja).
+- Font: Tactic Sans, lalu Arial Rounded, lalu Nunito / M PLUS Rounded 1c (gratis), lalu Arial. Tactic Sans dan Arial Rounded hanya tampil jika terpasang di komputer atau file fontnya diletakkan di `static/fonts/` (lihat `static/fonts/BACA-DULU.txt`).

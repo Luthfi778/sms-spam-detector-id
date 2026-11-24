@@ -11,9 +11,11 @@ from sklearn.metrics import precision_recall_curve
 
 from src.app_utils import (FOOTER, WIDTH_CHART, WIDTH_CM, load_metrics, load_predictions,
                            plot_confusion_matrix, require_artifacts, show_fig, themed)
+from src.theme import apply_theme, scene
 from src.config import POS_LABEL
 
 st.set_page_config(page_title="Evaluasi Model", page_icon="📊", layout="wide")
+apply_theme()
 require_artifacts()
 
 metrics = load_metrics()
@@ -107,3 +109,5 @@ st.caption("Kurva yang lebih mendekati pojok kanan atas lebih baik. Menggeser am
 
 st.divider()
 st.caption(FOOTER)
+
+scene()
